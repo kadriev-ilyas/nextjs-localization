@@ -1,34 +1,38 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import LocaleSwitcher from '../../components/locale-switcher'
+import LocaleSwitcher from '../../components/locale-switcher';
+import LinksBlock from '../../components/links-block';
+import TranslationsBlock from '../../components/translations-block';
 
-type GspPageProps = InferGetStaticPropsType<typeof getStaticProps>
+type GspPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function GspPage(props: GspPageProps) {
-  const router = useRouter()
-  const { defaultLocale } = router
+  const { t, i18n } = useTranslation();
 
   return (
     <div>
+      <Head>
+        <title>{t('test.title')}</title>
+        <meta name="description" content={t('test.description') || ''} />
+      </Head>
       <h1>getStaticProps page</h1>
-      <p>Current locale: {props.locale}</p>
-      <p>Default locale: {defaultLocale}</p>
+      <p>Current locale: {i18n.language}</p>
       <p>Configured locales: {JSON.stringify(props.locales)}</p>
 
       <LocaleSwitcher />
 
-      <Link href="/gsp/first">To dynamic getStaticProps page</Link>
-      <br />
+      <hr />
 
-      <Link href="/gssp">To getServerSideProps page</Link>
-      <br />
+      <LinksBlock />
 
-      <Link href="/">To index page</Link>
-      <br />
+      <hr />
+
+      <TranslationsBlock />
     </div>
-  )
+  );
 }
 
 type Props = {
@@ -42,8 +46,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 }) => {
   return {
     props: {
+      ...(await serverSideTranslations(locale || 'en', undefined, null, ['en', 'fr', 'nl', 'ru'])),
       locale,
       locales,
     },
-  }
+  };
 }

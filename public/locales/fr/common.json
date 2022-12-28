@@ -1,0 +1,9 @@
+{
+    "test": {
+        "title": "En-tête normal",
+        "description": "Descriptif habituel",
+        "testPhraseOne": "tester la première phrase",
+        "testPhraseTwo": "test phrase deux",
+        "testPhraseThree": "test phrase trois"
+    }
+}

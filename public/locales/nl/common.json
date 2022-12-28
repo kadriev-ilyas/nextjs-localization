@@ -1,0 +1,9 @@
+{
+    "test": {
+        "title": "Gewone kop",
+        "description": "Gebruikelijke beschrijving",
+        "testPhraseOne": "proefzin één",
+        "testPhraseTwo": "testzin twee",
+        "testPhraseThree": "proefzin drie"
+    }
+}

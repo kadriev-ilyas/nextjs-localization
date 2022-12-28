@@ -1,0 +1,9 @@
+{
+    "test": {
+        "title": "Обычный заголовок",
+        "description": "Обычное описание",
+        "testPhraseOne": "тестовая фраза один",
+        "testPhraseTwo": "тестовая фраза два",
+        "testPhraseThree": "тестовая фраза три"
+    }
+}

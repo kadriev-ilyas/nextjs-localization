@@ -1,0 +1,9 @@
+{
+    "test": {
+        "title": "Regular header",
+        "description": "Usual description",
+        "testPhraseOne": "test phrase one",
+        "testPhraseTwo": "test phrase two",
+        "testPhraseThree": "test phrase three"
+    }
+}
